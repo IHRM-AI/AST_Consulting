@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Job Portal</h1>
+    
+    {% if jobs %}
+        <h2>Available Jobs</h2>
+        <table>
+            <tr>
+                <th>Position</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Salary</th>
+                <th>Rating</th>
+            </tr>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.position_name }}</td>
+                <td>{{ job.company }}</td>
+                <td>{{ job.location }}</td>
+                <td>{{ job.salary }}</td>
+                <td>{{ job.rating }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No jobs available at the moment.</p>
+    {% endif %}
+</body>
+</html>
